@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'dart:async';
-
-import 'package:flutter/services.dart';
 import 'package:open_appstore/open_appstore.dart';
-
 
 void main() => runApp(MyHomePage());
 
@@ -21,7 +17,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   final androidController = TextEditingController();
   final iOSController = TextEditingController();
 
@@ -33,39 +28,32 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      new Container(
-                          width: 200.0,
-                          child: TextField(
-                            controller: androidController,
-                            textAlign: TextAlign.center,
-                            decoration: InputDecoration(
-                                border: InputBorder.none,
-                                hintText: 'AndroidPackageName'
-                            ),
-                          )
-                      ),
-                      new Container(
-                          width: 200.0,
-                          child: TextField(
-                            controller: iOSController,
-                            textAlign: TextAlign.center,
-                            decoration: InputDecoration(
-                                border: InputBorder.none,
-                                hintText: 'iOSPackageName',
-                            ),
-                          )
-                      ),
-                      new Container(
-                        width: 200.0,
-                          child: RaisedButton(
-                              child: Text('Move to AppStore'),
-                              color: Colors.blue,
-                              onPressed: () => OpenAppstore.launch(androidAppId: androidController.text, iOSAppId: iOSController.text)
-                      )
-                )]
-            )
-        )
-    )
-    );
+          new Container(
+              width: 200.0,
+              child: TextField(
+                controller: androidController,
+                textAlign: TextAlign.center,
+                decoration: InputDecoration(
+                    border: InputBorder.none, hintText: 'AndroidPackageName'),
+              )),
+          new Container(
+              width: 200.0,
+              child: TextField(
+                controller: iOSController,
+                textAlign: TextAlign.center,
+                decoration: InputDecoration(
+                  border: InputBorder.none,
+                  hintText: 'iOSPackageName',
+                ),
+              )),
+          new Container(
+              width: 200.0,
+              child: RaisedButton(
+                  child: Text('Move to AppStore'),
+                  color: Colors.blue,
+                  onPressed: () => OpenAppstore.launch(
+                      androidAppId: androidController.text,
+                      iOSAppId: iOSController.text)))
+        ]))));
   }
 }
